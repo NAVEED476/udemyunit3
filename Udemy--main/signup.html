@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style/log_sign.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div id="up">
+      <h2>Sign Up and Start Learning!</h2>
+      <hr />
+    </div>
+    <form>
+      <div class="input-container">
+        <i class="fa fa-user icon"></i>
+        <input
+          class="input-field"
+          type="text"
+          placeholder="Full Name"
+          id="name"
+        />
+      </div>
+
+      <div class="input-container">
+        <i class="fa fa-envelope icon"></i>
+        <input class="input-field" type="text" placeholder="Email" id="email" />
+      </div>
+
+      <div class="input-container">
+        <i class="fa fa-key icon"></i>
+        <input
+          class="input-field"
+          type="password"
+          placeholder="Password"
+          id="pass"
+        />
+      </div>
+      <button type="button" onclick="signup()" class="btn">Sign Up</button>
+    </form>
+    <div id="goto">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </body>
+</html>
+<script>
+  var newuser = JSON.parse(localStorage.getItem("newId")) || [];
+  function signup() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("pass").value;
+
+    let data = {
+      username: name,
+      emailaddress: email,
+      password: password,
+    };
+
+    newuser.push(data);
+    localStorage.setItem("newId", JSON.stringify(newuser));
+
+    setTimeout(function () {
+      window.location.href = "login.html";
+    }, 3000);
+  }
+  // async function signup() {
+  //   let signup_data = {
+  //     name: document.getElementById("name").value,
+  //     email: document.getElementById("email").value,
+  //     password: document.getElementById("pass").value,
+  //     username: "udemy_user",
+  //     mobile: "udemy_mobile",
+  //     description: "udemy_desc",
+  //   };
+
+  //   signup_data = JSON.stringify(signup_data);
+  //   console.log(signup_data);
+
+  //   let register_api = `https://masai-api-mocker.herokuapp.com/auth/register`;
+
+  //   let response = await fetch(register_api, {
+  //     method: "POST",
+  //     body: signup_data,
+
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+
+  //   let data = await response.json();
+  //   console.log(data);
+
+      // setTimeout(function () {
+      //   window.location.href = "login.html";
+      // }, 3000);
+  //}
+</script>

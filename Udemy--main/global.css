@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    --primary-color:#1c1d1f;
+    --secondary-color:#808080;
+    --background-color:#fff;
+    --font-size:1.4rem;
+    --font-large: 3.2rem;
+}
+
+h1{
+    font-size: var(--font-large);
+    color: var(--secondary-color);
+}
